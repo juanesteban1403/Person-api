@@ -1,6 +1,8 @@
-import Person from '../models/Person'
 
-export async function createPerson(req, res) {
+const Person = require ('../models/Person')
+
+
+async function createPerson(req, res) {
     const { fullname, birthdate, father, mother } = req.body;
 
     try {
@@ -45,7 +47,7 @@ export async function createPerson(req, res) {
     }
 }
 
-export async function getPersons(req, res) {
+async function getPersons(req, res) {
     try {
         const Persons = await Person.findAll();
         res.status(200).json({
@@ -60,7 +62,7 @@ export async function getPersons(req, res) {
     })
 }
 
-export async function getOnePerson(req, res) {
+async function getOnePerson(req, res) {
     const { id } = req.params
     try {
         const person = await Person.findOne({
@@ -80,7 +82,7 @@ export async function getOnePerson(req, res) {
     })
 }
 
-export async function deleteOnePerson(req,res){
+async function deleteOnePerson(req,res){
     const{id}=req.params
     try {
         let  deletedRowCount= await Person.destroy({
@@ -99,3 +101,7 @@ export async function deleteOnePerson(req,res){
     }
 
 }
+module.export =createPerson
+module.export =getPersons
+module.export =getOnePerson
+module.export =deleteOnePerson

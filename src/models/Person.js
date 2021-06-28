@@ -1,26 +1,27 @@
-import Sequalize from 'sequelize';
-import {sequalize} from '../database/database'
+const Sequelize = require ('sequelize');
+const sequelize = require('../database/database').sequelize;
 
-const person = sequalize.define('person',{
+const person = sequelize.define('person',{
     id:{
-        type: Sequalize.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true
     },
     fullname:{
-        type: Sequalize.TEXT
+        type: Sequelize.TEXT
     },
     birthdate:{
-        type: Sequalize.DATE
+        type: Sequelize.DATE
     },
     father:{
-        type:Sequalize.INTEGER,
+        type:Sequelize.INTEGER,
     },
     mother:{
-        type: Sequalize.INTEGER,
+        type: Sequelize.INTEGER,
     }
     },{
         freezeTableName : true,
         timestamps: false
     }
 );
-export default person;
+
+module.export = person;

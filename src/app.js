@@ -1,10 +1,8 @@
-import express, {json} from 'express';
-import morgan from 'morgan';
+const express =require ('express')
+const morgan = require ('morgan')
+const personAPI=require('./routes/person')
 
-// Importing routes
 
-
-import personRoutes from './routes/person';
 
 const app = express();
 
@@ -14,11 +12,11 @@ app.use(morgan('dev'));
 app.use(json());
 
 //routes
-app.use('/api/person',personRoutes);
+personAPI(app);
 
 
+module.exports = app;
 
 
-export default app;
 
 

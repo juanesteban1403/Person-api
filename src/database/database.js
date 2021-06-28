@@ -1,6 +1,6 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize')
 
-export const sequalize= new Sequelize(
+const sequelize= new Sequelize(
     'APINODE',
     'postgres',
     'juanesteban1403',
@@ -16,3 +16,5 @@ export const sequalize= new Sequelize(
         logging: false
     }
 )
+
+module.export = sequelize  
